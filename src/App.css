@@ -1,0 +1,22 @@
+
+
+
+.gradient-text {
+  text-align: center;
+  background: linear-gradient(to right,
+     #68eddb 0%,
+     #f55cb2 50%,
+     #f55cb2 50%,
+     #68eddb 100%);
+  -webkit-background-clip: text;
+  background-size: 200%;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: animate-gradient 2.5s linear infinite;
+}
+
+@keyframes animate-gradient {
+  to {
+    background-position: 200%;
+  }
+}

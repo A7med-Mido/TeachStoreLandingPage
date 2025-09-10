@@ -13,3 +13,19 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+
+@keyframes animate-gradient {
+  to {
+    background-size: 200%;
+  }
+}
+.gradient-text {
+  text-align: center;
+  background: linear-gradient(to bottom right, #68eddb, #f55cb2);
+  -webkit-background-clip: text;
+  background-size: 200%;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: animate-gradient 2s linear infinite;
+}
