@@ -63,8 +63,8 @@ const BottomSection = () => {
 
 const ShopOnlineButton = () => {
   return (
-    <div className="w-[100vw] bg-white flex justify-center items-center pt-24 lg:pt-0 pb-16">
-      <button className="rounded-[55px] gradient-bg text-white w-fit py-4 px-6 ">
+    <div className="w-[100vw] bg-white flex justify-center items-center pt-24 lg:pt-0 pb-16 h-40">
+      <button className="rounded-[55px] gradient-bg text-white w-fit py-4 px-6 cursor-pointer">
         Shop online
       </button>
     </div>

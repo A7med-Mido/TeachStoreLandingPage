@@ -1,17 +1,24 @@
-import { ProductWaves } from "../SVG"
+import { ProductWaves } from "../SVG";
 
 
 
+export default function ProductSection() {
+  return (
+    <div>
+      <div className="relative overflow-hidden pt-40 w-full h-fit top-32 ">
+        {/* Background Waves */}
+        <ProductWaves className="absolute inset-0 w-full  z-0" />
 
-
-
-const ProductSection = () => {
-  return(
-    <div className="bg-red-300 overflow-x-cli pt-40 lg:pt-28">
-      <ProductWaves className=" inset-0 w-full h-full z-10" />
+        {/* Foreground Content */}
+        <div className="relative z-10 flex justify-center">
+          <img src="/npc.png" className="w-[400px]" alt="Product" />
+          
+        </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
 
-export default ProductSection
+
+
