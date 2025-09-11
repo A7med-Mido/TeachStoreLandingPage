@@ -10,8 +10,8 @@ export default function ProductSection() {
         <ProductWaves className="absolute inset-0 w-full  z-0" />
 
         {/* Foreground Content */}
-        <div className="relative z-10 flex justify-center">
-          <img src="/npc.png" className="w-[400px]" alt="Product" />
+        <div className="relative z-10 flex justify-start">
+          <img src="/npc.png" className="w-[500px] h-fit relative left-20" alt="Product" />
           
         </div>
       </div>
