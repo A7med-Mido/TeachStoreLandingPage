@@ -4,16 +4,13 @@ import { ProductWaves } from "../SVG";
 
 export default function ProductSection() {
   return (
-    <div>
-      <div className="relative overflow-hidden pt-40 w-full h-fit top-32 ">
-        {/* Background Waves */}
-        <ProductWaves className="absolute inset-0 w-full  z-0" />
+    <div className="relative overflow-hidden w-full  ">
+      {/* Background Waves */}
+      <ProductWaves className="absolute inset-0 w-full z-0" />
 
-        {/* Foreground Content */}
-        <div className="relative z-10 flex justify-start">
-          <img src="/npc.png" className="w-[500px] h-fit relative left-20" alt="Product" />
-          
-        </div>
+      {/* Foreground Content */}
+        <img src="/npc.png" className="w-[43%] h-fit z-10 relative left-8 pt-12" alt="Product" />
+      <div className="relative z-10 flex justify-center items-center ">
       </div>
     </div>
   );

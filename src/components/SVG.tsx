@@ -133,7 +133,7 @@ export const ProductWaves = ({ className }: { className: string }) => {
     >
       <g clip-path="url(#clip0_1_157)">
       <path d="M0 0H1512V572H0V0Z" fill="#191B1D"/>
-      <path d="M0 0H1512V572H0V0Z" fill="url(#paint0_linear_1_157)" fill-opacity="0.2"/>
+      <path d="M0 0H1512V572H0V0Z" fill="url(#paint0_linear_1_157)" fillOpacity="0.2"/>
       <path d="M1363.99 94.3556C1295.17 64.7417 1190.19 109.723 1167.29 166.993C1142.02 230.246 1275 364.462 1300.54 370.625C1326.09 376.789 1243.27 213.238 1301.22 193.672C1365.55 171.967 1455.61 272.147 1472.98 251.625C1490.06 231.436 1443.54 128.589 1363.99 94.3556Z" stroke="url(#paint1_linear_1_157)" stroke-miterlimit="10"/>
       <path d="M1355.48 73.3787C1281.84 32.3556 1161.31 94.0911 1138.9 161.449C1113.53 237.759 1269.77 373.007 1298.33 388.265C1322.94 401.428 1256.83 231.902 1320.95 201.691C1390.6 168.851 1480.69 251.253 1487.36 233.064C1494.5 213.548 1441.83 121.569 1355.48 73.3787Z" stroke="url(#paint2_linear_1_157)" stroke-miterlimit="10"/>
       <path d="M1346.96 52.414C1268.65 0.0191378 1132.5 78.4959 1110.52 155.894C1085.05 245.371 1263.61 380.19 1296.1 405.918C1319.75 424.58 1270.43 250.734 1340.7 209.671C1415.65 165.884 1508.31 231.755 1501.66 214.585C1501.67 197.304 1440.3 114.848 1346.96 52.414Z" stroke="url(#paint3_linear_1_157)" stroke-miterlimit="10"/>
@@ -267,7 +267,7 @@ export const AboutWaves = ({ className }:{ className: string }) => {
       fill="none"
       className={className}
     >
-      <g clip-path="url(#clip0_1_250)">
+      <g clipPath="url(#clip0_1_250)">
       <path d="M0 0H1206V555C1206 571.569 1192.57 585 1176 585H30C13.4315 585 0 571.569 0 555V0Z" fill="#191B1D"/>
       <path d="M-52.1551 827.049C-13.1693 753.456 -42.5476 618.866 -84.379 594.609C-132.732 566.514 -230.423 733.727 -248.883 764.102C-262.285 786.225 -157.028 745.373 -141.544 814.856C-125.035 888.971 -173.386 975.903 -162.786 970.146C-152.886 970.831 -98.6147 914.777 -52.1551 827.049Z" stroke="url(#paint0_linear_1_250)" stroke-miterlimit="10"/>
       <path d="M-39.5638 819.855C6.37653 742.133 -30.7438 591.962 -78.3753 567.715C-134.238 539.204 -239.334 720.282 -259.116 761.52C-271.504 787.354 -169.821 758.073 -148.801 833.809C-126.686 913.518 -165.235 1002.31 -154.231 984.889C-144.157 977.231 -95.01 913.615 -39.5638 819.855Z" stroke="url(#paint1_linear_1_250)" stroke-miterlimit="10"/>
@@ -292,7 +292,7 @@ export const AboutWaves = ({ className }:{ className: string }) => {
       </g>
       <defs>
         <linearGradient id="paint0_linear_1_250" x1="-80.2006" y1="881.544" x2="-248.705" y2="744.063" gradientUnits="userSpaceOnUse">
-        <stop stop-color="#9C9C9C"/>
+        <stop stopColor="#9C9C9C"/>
         <stop offset="1" stop-color="#17181A"/>
         </linearGradient>
         <linearGradient id="paint1_linear_1_250" x1="-72.5748" y1="886.591" x2="-260.205" y2="733.504" gradientUnits="userSpaceOnUse">

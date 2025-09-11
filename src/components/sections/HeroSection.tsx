@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 export default function HeroSection() {
   return (
-    <main className="flex flex-col justify-center items-center w-full h-fit bg-[#191B1D]">
+    <main className="flex flex-col justify-center items-center w-full h-fit bg-[#191B1D] mb-40">
       <TopSection />
       <BottomSection />
     </main>
@@ -13,7 +13,7 @@ export default function HeroSection() {
 
 const TopSection = () => {
   return (
-    <section className="relative w-full h-[55vh] lg:h-[65vh] flex flex-col justify-center">
+    <section className="relative w-full h-[55vh] lg:h-[65vh] flex flex-col justify-center ">
       <HeroSectionWaves className="absolute inset-0 w-full h-full z-10 hidden sm:inline" />
       <div className="relative z-10 flex flex-col lg:flex-row lg:justify-between justify-start items-center w-full h-full px-6 lg:pt-0 pt-16">
         <h1 className="hidden xl:block absolute -right-40 top-1/2 -translate-y-1/2 -rotate-90 text-[#3A3B3B] text-[80px] font-bold ">
