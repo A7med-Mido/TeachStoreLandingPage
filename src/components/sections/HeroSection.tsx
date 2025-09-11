@@ -1,49 +1,73 @@
 import { HeroSectionWaves } from "../SVG";
 
-
 export default function HeroSection() {
   return (
-    <main className="w-full h-screen flex-col justify-center items-center bg-[#191B1D]">
+    <main className="relative flex flex-col justify-center items-center w-full min-h-screen bg-[#191B1D]">
       <TopSection />
       <BottomSection />
     </main>
-  )
+  );
 }
-
-
 
 const TopSection = () => {
   return (
-    <>
-      <HeroSectionWaves className="-z-0 w-full h-[65vh] absolute -left-53 hidden sm:inline" />
-      <div className="z-40 w-full h-[65vh] lg:flex justify-between items-center">
-        <h1 className="text-7xl hidden xl:inline -rotate-90 absolute text-gray-500 font-bold -right-40 top-52">NEW SHACK</h1>
-        <div className="w-fit uppercase md:pl-32 overflow-hidden">
-          <h1 className="gradient-text font-semibold text-3xl sm:text-4xl md:text-[53px] w-fit pb-1">The next level</h1>
-          <h1 className="gradient-text font-semibold text-3xl sm:text-4xl md:text-[53px] w-fit">of smart gadgets</h1>
-          <p className="text-2xl pt-11 w-[600px]">A large collection of the best gadgets of global brands in one place for you</p>
-          <img src="/macbook.png" 
-            className="
-              xl:w-[860px]
-              lg:w-[660px]
-              md:w-[530px]
-              sm:w-[410px]
-              w-[340px]
-              xl:top-[5%]
-              lg:top-[18%]
-              z-80
-              absolute
-              right-0"/>
+    <section className="relative w-full h-[55vh] lg:h-[65vh] flex flex-col justify-center">
+      <HeroSectionWaves className="absolute inset-0 w-full h-full z-10 hidden sm:inline" />
+      <div className="relative z-10 flex flex-col lg:flex-row lg:justify-between justify-start items-center w-full h-full px-6 lg:pt-0 pt-16">
+        <h1 className="hidden xl:block absolute -right-40 top-1/2 -translate-y-1/2 -rotate-90 text-[#3A3B3B] text-[80px] font-bold ">
+          NEW SHACK
+        </h1>
+        <div className="flex md:pl-6 lg:pl-10 flex-col items-center lg:items-start uppercase">
+          <h1 className="gradient-text font-semibold text-[39px] sm:text-5xl md:text-[58px]">
+            The next level
+          </h1>
+          <h1 className="gradient-text font-semibold text-[39px] sm:text-5xl md:text-[58px]">
+            of smart gadgets
+          </h1>
+          <p className="text-2xl pt-6 max-w-[600px] hidden lg:inline">
+            A large collection of the best gadgets of global brands in one place for you
+          </p>
         </div>
+        <img
+          src="/macbook.png"
+          alt="Macbook showcasing gadgets"
+          className="
+            absolute top-44 sm:top-40 md:top-40 lg:top-32 xl:top-[5%]
+            w-[500px] sm:w-[570px] md:w-[580px] lg:w-[710px] xl:w-[860px]
+            lg:inset-[43%]
+            right-1/2
+            z-30
+            translate-x-1/2 lg:translate-x-[69px] xl:translate-x-12
+          "
+        />
       </div>
-    </>
-  )
-}
+    </section>
+  );
+};
 
 const BottomSection = () => {
   return (
-    <div className="w-full h-[50vh] bg-white">
+    <section className="w-full h-[50vh] bg-white text-black py-12">
+      <ul className="
+        grid 
+        grid-cols-2 lg:grid-cols-4 
+        gap-10 
+        max-w-6xl mx-auto 
+        text-center
+      ">
+        <StatCard number="10" label="Years of Experience" />
+        <StatCard number="5k+" label="Products" />
+        <StatCard number="59" label="Countries of Delivery" />
+        <StatCard number="10k+" label="Reviews" />
+      </ul>
+    </section>
+  );
+};
 
-    </div>
-  )
-}
+const StatCard = ({ number, label }: { number: string; label: string }) => (
+  <li className="flex flex-col justify-center items-center gap-3">
+    <h1 className="text-5xl font-extrabold">{number}</h1>
+    <p className="text-lg md:text-xl text-gray-700">{label}</p>
+  </li>
+);
+
