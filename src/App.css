@@ -26,6 +26,8 @@
 
 body {
   font-family: "MyFont";
+
+  overflow-x: clip;
 }
 
 .gradient-text {
@@ -46,4 +48,9 @@ body {
   to {
     background-position: 200%;
   }
+}
+
+
+.gradient-bg {
+  background: linear-gradient(to bottom right, #f53838, #ed74b8, #2b33c8);
 }
