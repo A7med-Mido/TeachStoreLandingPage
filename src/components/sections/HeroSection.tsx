@@ -1,5 +1,5 @@
 import { HeroSectionWaves } from "../SVG";
-import {  useInView } from "framer-motion";
+import { useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 export default function HeroSection() {
@@ -19,7 +19,7 @@ const TopSection = () => {
         <h1 className="hidden xl:block absolute -right-40 top-1/2 -translate-y-1/2 -rotate-90 text-[#3A3B3B] text-[80px] font-bold ">
           NEW SHACK
         </h1>
-        <div className="flex md:pl-6 lg:pl-10 flex-col items-center lg:items-start uppercase">
+        <div className="flex md:pl-6 mt-2 sm:mt-0 lg:pl-10 flex-col items-center lg:items-start uppercase">
           <h1 className="gradient-text font-semibold text-[39px] sm:text-5xl md:text-[58px]">
             The next level
           </h1>
@@ -34,7 +34,7 @@ const TopSection = () => {
             src="/macbook.png"
             alt="Macbook showcasing gadgets"
             className="
-              absolute top-44 sm:top-40 md:top-40 lg:top-32 xl:top-[5%]
+              absolute top-48 sm:top-40 md:top-40 lg:top-32 xl:top-[5%]
               w-[500px] sm:w-[570px] md:w-[580px] lg:w-[710px] xl:w-[860px]
               lg:inset-[43%]
               right-1/2
