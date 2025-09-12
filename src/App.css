@@ -30,6 +30,10 @@ body {
   overflow-x: clip;
 }
 
+.blur {
+  filter: blur(12px);
+}
+
 .gradient-text {
   text-align: center;
   background: linear-gradient(to right,
