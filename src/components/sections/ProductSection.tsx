@@ -40,7 +40,7 @@ export default function ProductSection() {
     <div className="relative overflow-x-hidden overflow-clip w-full bg-[#191B1D] flex sm:flex-row flex-col">
       {/* Background Waves */}
       <ProductWaves className="absolute inset-0 w-full z-0" />
-      <p className="text-2xl pt-6 max-w-[600px] inline sm:hidden">
+      <p className="text-xl text-center px-12 pt-4 w-full inline sm:hidden">
         A large collection of the best gadgets of global brands in one place for you
       </p>
       <h1 className="hidden xl:inline absolute -left-40 top-1/2 -translate-y-1/2 -rotate-90 text-[#3A3B3B] text-[80px] font-bold ">
@@ -49,7 +49,7 @@ export default function ProductSection() {
       {/* Foreground Content */}
       <img src="/npc.png" className="sm:w-[47%] w-[80%] h-fit z-10 relative -left-14 sm:-left-10 pt-20 sm:pt-12" alt="Product" />
       <div className="relative z-10 flex justify-center items-center ">
-        <ProductCarousel products={products} />
+        <h1></h1>
       </div>
     </div>
   );

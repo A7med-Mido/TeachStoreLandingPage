@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 export default function HeroSection() {
   return (
-    <main className="flex flex-col justify-center items-center w-full h-fit bg-[#191B1D] mb-40">
+    <main className="flex flex-col justify-center items-center w-full h-fit bg-[#191B1D]">
       <TopSection />
       <BottomSection />
     </main>
@@ -49,7 +49,7 @@ const TopSection = () => {
 
 const BottomSection = () => {
   return (
-    <section className="w-full h-[30vh] flex-col justify-center items-center bg-white text-black pt-16">
+    <section className="w-full h-full flex-col justify-center items-center bg-white text-black pt-28">
       <ul className="grid grid-cols-2 lg:grid-cols-4 gap-y-14 w-[80%] mx-auto text-center h-full pb-12">
         <StatCard number={10} label="Years of Experience" />
         <StatCard number={5000} label="Products" />
@@ -63,7 +63,7 @@ const BottomSection = () => {
 
 const ShopOnlineButton = () => {
   return (
-    <div className="w-[100vw] bg-white flex justify-center items-center pt-24 lg:pt-0 pb-16 h-40">
+    <div className="w-[100vw] hidden  bg-white sm:flex justify-center items-center pt-24 sm:pt-2 pb-12 h-40">
       <button className="rounded-[55px] gradient-bg text-white w-fit py-2.5 px-10 cursor-pointer">
         Shop online
       </button>
