@@ -49,7 +49,7 @@ const TopSection = () => {
 
 const BottomSection = () => {
   return (
-    <section className="w-full h-full flex-col justify-center items-center bg-white text-black pt-28">
+    <section className="w-full h-full flex-col justify-center items-center bg-white text-black sm:pt-28 pt-10">
       <ul className="grid grid-cols-2 lg:grid-cols-4 gap-y-14 w-[80%] mx-auto text-center h-full pb-12">
         <StatCard number={10} label="Years of Experience" />
         <StatCard number={5000} label="Products" />

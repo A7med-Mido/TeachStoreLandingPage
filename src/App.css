@@ -35,7 +35,6 @@ body {
 }
 
 .gradient-text {
-  text-align: center;
   background: linear-gradient(to right,
      #68eddb 0%,
      #f55cb2 50%,

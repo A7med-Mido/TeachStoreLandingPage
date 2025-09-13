@@ -40,16 +40,28 @@ export default function ProductSection() {
     <div className="relative overflow-x-hidden overflow-clip w-full bg-[#191B1D] flex sm:flex-row flex-col">
       {/* Background Waves */}
       <ProductWaves className="absolute inset-0 w-full z-0" />
-      <p className="text-xl text-center px-12 pt-4 w-full inline sm:hidden">
-        A large collection of the best gadgets of global brands in one place for you
-      </p>
+        <p className="text-xl text-center px-12 pt-4 w-full inline sm:hidden">
+          A large collection of the best gadgets of global brands in one place for you
+        </p>
+      <div className="z-10 ">
+
+      </div>
       <h1 className="hidden xl:inline absolute -left-40 top-1/2 -translate-y-1/2 -rotate-90 text-[#3A3B3B] text-[80px] font-bold ">
         NEW SHACK
       </h1>
-      {/* Foreground Content */}
-      <img src="/npc.png" className="sm:w-[47%] w-[80%] h-fit z-10 relative -left-14 sm:-left-10 pt-20 sm:pt-12" alt="Product" />
-      <div className="relative z-10 flex justify-center items-center ">
-        <h1></h1>
+      
+
+        <img src="/npc.png" className="sm:w-[47%] w-[80%] h-fit z-10 relative -left-24 sm:-left-10 pt-20 sm:pt-12" alt="Product" />
+      <div className="z-10 absolute right-[10%] top-30 sm:w-[50vw] w-[280px] flex-col sm:items-start justify-center items-center ">
+        <h1 className="text-5xl sm:text-[5vw] gradient-text font-bold uppercase  sm:text-start">
+          Move with the beat of yor life
+        </h1>
+        <p className="text-center sm:text-start">
+          The big collection of the best musical gadgets on sales
+        </p>
+        {/* <button className="gradient-bg px-5 py-2 rounded-4xl text-sm">
+          More
+        </button> */}
       </div>
     </div>
   );
@@ -74,7 +86,7 @@ function useMediaQuery(query: string) {
   return matches;
 }
 
-export function ProductCarousel({ products }: { products: Products }) {
+function ProductCarousel({ products }: { products: Products }) {
   const isMobile = useMediaQuery("(max-width: 768px)");
   const [index, setIndex] = useState(1);
   const total = products.length;
@@ -200,6 +212,5 @@ return (
     </div>
   </div>
 );
-
 }
 
