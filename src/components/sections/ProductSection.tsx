@@ -12,7 +12,7 @@ export default function ProductSection() {
         <p className="text-[18px] text-center px-12 pt-4 w-full inline sm:hidden">
           A large collection of the best gadgets of global brands in one place for you
         </p>
-        <button className="rounded-[55px] gradient-bg text-white w-fit py-1 px-4 cursor-pointer text-[11px]">
+        <button className="rounded-[55px] gradient-bg text-white w-fit py-1 px-4 cursor-pointer text-[11px] inline sm:hidden">
           Shop online
         </button>
       </div>
@@ -27,9 +27,12 @@ export default function ProductSection() {
         <h1 className="text-4xl sm:text-[5vw] gradient-text font-bold uppercase  sm:text-start">
           Move with the beat of yor life
         </h1>
-        <p className="text-center sm:text-start w-40 pt-2">
-          The big collection of the best musical gadgets on sales
-        </p>
+        <span className="text-center sm:text-start w-40 sm:w-fit pt-2 sm:text-2xl break-words">
+          The big collection <br className="hidden sm:block" />of the best musical gadgets on sales
+        <button className="rounded-[55px] gradient-bg text-white w-fit py-1.5 px-10 cursor-pointer text-lg hidden lg:inline right-[-1vw] absolute">
+          More
+        </button>
+        </span>
         {/* <button className="gradient-bg px-5 py-2 rounded-4xl text-sm">
           More
         </button> */}

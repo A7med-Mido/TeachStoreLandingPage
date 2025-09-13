@@ -88,7 +88,7 @@ function ProductCarousel({ products }: { products: Products }) {
             <div className="absolute inset-0 blur bg-[#7b7b7b] z-0" />
 
             {/* Actual Card Content */}
-            <div className="relative z-10 flex flex-col justify-between p-8  ">
+            <div className="relative z-10 flex flex-col p-8 items-start">
               {/* Image */}
               <div className="flex justify-center items-center bg-gray-700/60 h-28">
                 <img src={p.image} alt={p.title} className="h-56 w-56 object-contain" />

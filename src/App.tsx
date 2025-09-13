@@ -1,5 +1,6 @@
 import './App.css'
 import Navbar from './components/Navbar'
+import AboutSection from './components/sections/AboutSection'
 import HeroSection from './components/sections/HeroSection'
 import ProductSection from './components/sections/ProductSection'
 
@@ -10,6 +11,7 @@ function App() {
       <Navbar />
       <HeroSection />
       <ProductSection />
+      <AboutSection />
     </div>
   )
 }
