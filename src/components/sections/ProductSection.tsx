@@ -22,12 +22,12 @@ export default function ProductSection() {
       </h1>
       
 
-        <img src="/npc.png" className="sm:w-[47%] w-[80%] h-fit z-10 relative -left-24 sm:-left-10 pt-36 sm:pt-12" alt="Product" />
-      <div className="z-10 absolute right-[10%] top-32 sm:w-[50vw] w-[210px] flex flex-col text-center sm:items-start justify-center items-center ">
-        <h1 className="text-4xl sm:text-[5vw] gradient-text font-bold uppercase  sm:text-start">
+        <img src="/npc.png" className="sm:w-[50%] w-[80%] h-fit z-10 relative -left-24 sm:-left-16 pt-36 sm:pt-24" alt="Product" />
+      <div className="z-10 absolute right-[10%] top-32 sm:w-[50vw] w-[210px] flex flex-col text-center md:items-start justify-center items-center ">
+        <h1 className="text-4xl sm:text-[5vw] gradient-text font-bold uppercase  md:text-start">
           Move with the beat of yor life
         </h1>
-        <span className="text-center sm:text-start w-40 sm:w-fit pt-2 sm:text-2xl break-words">
+        <span className="md:text-start w-40 sm:w-fit pt-2 md:text-xl lg:text-2xl break-words text-center">
           The big collection <br className="hidden sm:block" />of the best musical gadgets on sales
         <button className="rounded-[55px] gradient-bg text-white w-fit py-1.5 px-10 cursor-pointer text-lg hidden lg:inline right-[-1vw] absolute">
           More

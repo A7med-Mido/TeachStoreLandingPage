@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 
 const AboutSection = () => {
@@ -48,143 +48,92 @@ type Products = typeof products
 
 
 
-function useMediaQuery(query: string) {
-  const [matches, setMatches] = useState(false);
 
-  useEffect(() => {
-    const media = window.matchMedia(query);
-    const listener = () => setMatches(media.matches);
-    listener();
-    media.addEventListener("change", listener);
-    return () => media.removeEventListener("change", listener);
-  }, [query]);
 
-  return matches;
-}
-
-function ProductCarousel({ products }: { products: Products }) {
-  const isMobile = useMediaQuery("(max-width: 768px)");
-  const [index, setIndex] = useState(1);
-  const total = products.length;
-  const translatePercent = (index * 100) / total;
+export function ProductCarousel({ products }: { products: Products }) {
+  const [index, setIndex] = useState(0);
 
   const renderStars = (rating: number) =>
     Array.from({ length: 5 }, (_, i) => (
-      <span key={i} className={`text-xl ${i < rating ? "text-black" : "text-gray-400"}`}>
+      <span key={i} className={`text-lg ${i < rating ? "text-black" : "text-gray-400"}`}>
         ★
       </span>
     ));
 
-  // DESKTOP / TABLET GRID VIEW
-  if (!isMobile) {
-    return (
-      <div className="grid grid-cols-3 gap-6 max-w-6xl mx-auto relative right-20 top-40">
+  return (
+    <div className="w-[120vw] md:w-[100vw] flex flex-col items-center ml-[1vw] md:ml-[13.5vw] -mt-[70px]">
+      {/* DESKTOP / TABLET */}
+      <div className="hidden sm:grid grid-cols-3 gap-6 max-w-6xl mx-auto z-10">
         {products.map((p) => (
           <div
             key={p.id}
-            className="relative h-[40vh] w-[18vw] rounded-3xl overflow-hidden"
+            className="relative w-[21vw] h-[290px] md:h-[320px] lg:h-[360px] rounded-3xl overflow-hidden backdrop-blur-sm bg-white/40 "
           >
-            {/* 🔥 Blur Layer */}
-            <div className="absolute inset-0 blur bg-[#7b7b7b] z-0" />
-
-            {/* Actual Card Content */}
-            <div className="relative z-10 flex flex-col p-8 items-start">
-              {/* Image */}
-              <div className="flex justify-center items-center bg-gray-700/60 h-28">
-                <img src={p.image} alt={p.title} className="h-56 w-56 object-contain" />
+            <div className="flex flex-col p-6 h-full justify-between">
+              <div className="flex justify-center items-center bg-gray-700/30 h-32 rounded-xl">
+                <img src={p.image} alt={p.title} className="h-32 object-contain" />
               </div>
-
-              {/* Text & Price */}
-              <div className="pt-10">
-                <h3 className="text-lg font-medium text-black">{p.title}</h3>
-                <div className="flex items-center gap-2">
-                  {p.oldPrice && (
-                    <span className="text-red-600 line-through text-sm">{p.oldPrice}$</span>
-                  )}
-                  <span className="text-black font-semibold">{p.price}$</span>
+              <div>
+                <h3 className=" text-sm lg:text-lg font-medium">{p.title}</h3>
+                <div className="flex items-center gap-2 text-[11px] lg:text-sm">
+                  {p.oldPrice && <span className="line-through text-red-600">{p.oldPrice}$</span>}
+                  <span className="text-black font-semibold ">{p.price}$</span>
                 </div>
               </div>
-
-              {/* Stars & Colors */}
               <div className="flex gap-1">{renderStars(p.rating)}</div>
               <div className="flex gap-2">
                 {p.colors.map((c, i) => (
-                  <span
-                    key={i}
-                    className={`w-5 h-5 rounded-md border border-gray-300 ${c}`}
-                  />
+                  <span key={i} className={`w-5 h-5 rounded-md border border-gray-300 ${c}`} />
                 ))}
               </div>
             </div>
           </div>
         ))}
       </div>
-    );
-  }
 
-  // MOBILE CAROUSEL VIEW
-  return (
-    <div className="w-full max-w-[400px] mx-auto">
-      <div className="relative overflow-hidden">
-        {/* Track */}
+      {/* MOBILE CAROUSEL */}
+      <div className="sm:hidden w-full max-w-sm overflow-hidden z-10">
         <motion.div
           className="flex"
-          animate={{ x: `-${translatePercent}%` }}
+          animate={{ x: `-${index * 280}px` }} // move by fixed width
           transition={{ type: "spring", stiffness: 200, damping: 25 }}
-          style={{ width: `${total * 80}%` }} // slightly wider track so cards are spaced nicely
         >
-          {products.map((p) => (
-            <div key={p.id} className="p-3 ml-[4vw]" style={{ width: `${100 / total}%` }}>
-              <div className="relative h-[34vh] w-[65vw] rounded-2xl overflow-hidden">
-                {/* 🔥 Blur Layer */}
-                <div className="absolute inset-0 blur bg-gray-200/30 z-0" />
-
-                {/* Actual Card Content */}
-                <div className="relative z-10 h-full flex flex-col justify-between p-5">
-                  {/* Image */}
-                  <div className="flex justify-center items-center bg-gray-700/50 h-28 rounded-xl">
-                    <img src={p.image} alt={p.title} className="h-44 w-44 object-contain" />
+          {products.map((p, i) => (
+            <div key={i} className="shrink-0 w-[260px] mx-2">
+              <div className="h-[340px] rounded-2xl overflow-hidden backdrop-blur-md bg-white/30 shadow-md  p-5 flex flex-col justify-between">
+                <div className="flex justify-center items-center bg-gray-700/20 h-28 rounded-xl">
+                  <img src={p.image} alt={p.title} className="h-28 object-contain" />
+                </div>
+                <div>
+                  <h3 className="text-base font-medium line-clamp-2">{p.title}</h3>
+                  <div className="flex items-center gap-2">
+                    {p.oldPrice && <span className="text-xs line-through text-red-600">{p.oldPrice}$</span>}
+                    <span className="font-semibold text-sm">{p.price}$</span>
                   </div>
-
-                  {/* Text & Price */}
-                  <div>
-                    <h3 className="text-base font-medium text-black line-clamp-2">{p.title}</h3>
-                    <div className="flex items-center gap-2">
-                      {p.oldPrice && (
-                        <span className="text-red-600 line-through text-xs">{p.oldPrice}$</span>
-                      )}
-                      <span className="text-black font-semibold text-sm">{p.price}$</span>
-                    </div>
-                  </div>
-
-                  {/* Stars & Colors */}
-                  <div className="flex gap-1">{renderStars(p.rating)}</div>
-                  <div className="flex gap-2">
-                    {p.colors.map((c, i) => (
-                      <span
-                        key={i}
-                        className={`w-4 h-4 rounded-md border border-gray-300 ${c}`}
-                      />
-                    ))}
-                  </div>
+                </div>
+                <div className="flex gap-1">{renderStars(p.rating)}</div>
+                <div className="flex gap-2">
+                  {p.colors.map((c, i) => (
+                    <span key={i} className={`w-4 h-4 rounded-md border border-gray-300 ${c}`} />
+                  ))}
                 </div>
               </div>
             </div>
           ))}
         </motion.div>
-      </div>
 
-      {/* Dots */}
-      <div className="flex justify-center gap-2 mt-3">
-        {products.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setIndex(i)}
-            className={`w-2.5 h-2.5 rounded-full transition-all duration-200 ${
-              i === index ? "bg-gray-800 scale-110" : "bg-gray-300"
-            }`}
-          />
-        ))}
+        {/* Dots */}
+        <div className="flex justify-center gap-2 mt-3">
+          {products.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setIndex(i)}
+              className={`w-2.5 h-2.5 rounded-full transition-all ${
+                i === index ? "bg-gray-800 scale-110" : "bg-gray-300"
+              }`}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
