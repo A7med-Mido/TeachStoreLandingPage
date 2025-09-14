@@ -4,26 +4,49 @@ import { AboutWaves } from "../SVG";
 
 
 const AboutSection = () => {
-
   return (
     <div className="bg-white flex flex-col justify-start items-center">
       <ProductCarousel products={products} />
-      <div className="mt-[340px] md:mt-20 w-full md:w-[80vw] bg-[#191B1D] md:rounded-4xl ">
+      <div className="mt-[340px] sm:mt-20 w-full md:w-[80vw] bg-[#191B1D] md:rounded-4xl ">
         <About />
       </div>
     </div>
   );
 };
 
-
+const features = [
+  {
+    title: "WE CARE",
+    text: "We care about our work. We care about doing a good job. We care about customers. We care about the environment and society. We are not ‘just doing our job’ — we care about the product you receive and the experience you will have.",
+  },
+  {
+    title: "WE PROVIDE THE BEST QUALITY",
+    text: "Here you will find products of the best brands in gadgets world. Moreover, if you are not satisfied with the quality of a product, we are always here to help you.",
+  },
+  {
+    title: "WE PROMOTE THE COMFORT",
+    text: "We deliver all products to provide the most comfortable service. You can order a delivery to home, office, garage, garden, island... wherever you need.",
+  },
+  {
+    title: "WE LEARN",
+    text: "We always grow and learn new things. We have a special blog about news from the tech world. Subscribe to receive news and articles which our specialists recommend to read to keep up with the fast-growing world of tech.",
+  },
+];
 
 const About = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const next = () =>
+    setCurrentIndex((prev) => (prev + 1) % features.length);
+  const prev = () =>
+    setCurrentIndex((prev) =>
+      prev === 0 ? features.length - 1 : prev - 1
+    );
+
   return (
     <section className="relative rounded-3xl flex items-center justify-center py-7 sm:py-20 px-4 sm:px-8 lg:px-16 h-full overflow-hidden">
-        <AboutWaves className="sm:rounded-3xl hidden sm:inline absolute -z-0 inset-0 h-full" />
-      <div className="relative  w-full rounded-3xl p-8 sm:p-12 shadow-lg bg-transparent z-10">
-        {/* Optional decorative background */}
-
+      <AboutWaves className="sm:rounded-3xl hidden sm:inline absolute -z-0 inset-0 h-full" />
+      <div className="relative w-full rounded-3xl p-8 sm:p-12 bg-transparent z-10">
         <div className="relative z-10 text-center space-y-10">
           {/* Heading */}
           <div>
@@ -36,29 +59,54 @@ const About = () => {
           </div>
 
           {/* Features */}
-          <div className="space-y-8 text-left">
-            <Feature
-              title="WE CARE"
-              text="We care about our work. We care about doing a good job. We care about customers. We care about the environment and society. We are not ‘just doing our job’ — we care about the product you receive and the experience you will have."
-            />
-            <div className="space-y-8 text-left hidden md:inline">
-              <Feature
-                title="WE PROVIDE THE BEST QUALITY"
-                text="Here you will find products of the best brands in gadgets world. Moreover, if you are not satisfied with the quality of a product, we are always here to help you."
-              />
-              <Feature
-                title="WE PROMOTE THE COMFORT"
-                text="We deliver all products to provide the most comfortable service. You can order a delivery to home, office, garage, garden, island... wherever you need."
-              />
-              <Feature
-                title="WE LEARN"
-                text="We always grow and learn new things. We have a special blog about news from the tech world. Subscribe to receive news and articles which our specialists recommend to read to keep up with the fast-growing world of tech."
-              />
+          {/* Mobile: Carousel */}
+          <div className="sm:hidden relative">
+            <motion.div
+              key={currentIndex}
+              initial={{ x: 50, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: -50, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <Feature {...features[currentIndex]} />
+            </motion.div>
+
+            {/* Carousel Controls */}
+            <div className="flex justify-between items-center mt-4">
+              <button
+                onClick={prev}
+                className="p-2 text-white hover:scale-110 transition-transform"
+              >
+                ◀
+              </button>
+              <div className="flex gap-2">
+                {features.map((_, i) => (
+                  <span
+                    key={i}
+                    className={`w-2 h-2 rounded-full transition-all ${
+                      i === currentIndex ? "bg-white" : "bg-gray-600"
+                    }`}
+                  />
+                ))}
+              </div>
+              <button
+                onClick={next}
+                className="p-2 text-white hover:scale-110 transition-transform"
+              >
+                ▶
+              </button>
             </div>
           </div>
 
+          {/* Desktop: Stacked */}
+          <div className="hidden sm:block space-y-8 text-left">
+            {features.map((f, i) => (
+              <Feature key={i} {...f} />
+            ))}
+          </div>
+
           {/* Subscribe Button */}
-          <button className=" hidden md:inline relative px-6 py-2 rounded-full bg-gradient-to-r from-pink-500 to-blue-500 text-white font-medium hover:scale-105 transition-transform">
+          <button className="hidden md:inline relative px-6 py-2 rounded-full bg-gradient-to-r from-pink-500 to-blue-500 text-white font-medium hover:scale-105 transition-transform">
             Subscribe
           </button>
         </div>
@@ -128,13 +176,13 @@ function ProductCarousel({ products }: { products: Products }) {
     ));
 
   return (
-    <div className="w-[120vw] md:w-[100vw] flex flex-col items-center ml-[1vw] md:ml-[13.5vw] -mt-[70px]">
+    <div className="w-[120vw] md:w-[100vw] flex flex-col items-center ml-[1vw] md:ml-[13.5vw] -mt-[70px] lg:-mt-[130px]">
       {/* DESKTOP / TABLET */}
-      <div className="hidden sm:grid grid-cols-3 gap-6 max-w-6xl mx-auto z-10">
+      <div className="hidden sm:grid grid-cols-3 gap-6 mx-auto z-10">
         {products.map((p) => (
           <div
             key={p.id}
-            className="relative w-[21vw] h-[290px] md:h-[320px] lg:h-[360px] rounded-3xl overflow-hidden backdrop-blur-xl bg-gray-300/50 "
+            className="relative w-[21vw] lg:w-[20vw] h-[290px] md:h-[320px] lg:h-[360px] rounded-3xl overflow-hidden backdrop-blur-xl bg-gray-300/50 "
           >
             <div className="flex flex-col p-6 h-full justify-between">
               <div className="flex justify-center items-center bg-gray-700/30 h-32 rounded-xl">
@@ -205,3 +253,87 @@ function ProductCarousel({ products }: { products: Products }) {
     </div>
   );
 }
+
+
+
+type Blog = {
+  id: number;
+  date: string;
+  title: string;
+  image: string;
+};
+
+const blogs: Blog[] = [
+  {
+    id: 1,
+    date: "Jun, 12, 2021",
+    title: "Tech companies don’t get science fiction – and that's deeply troubling",
+    image: "/images/blog1.jpg",
+  },
+  {
+    id: 2,
+    date: "Jun, 12, 2021",
+    title: "These are the games to look out for in 2022",
+    image: "/images/blog2.jpg",
+  },
+  {
+    id: 3,
+    date: "Jun, 10, 2021",
+    title: "Why Apple's crackdown on child abuse images is no easy decision",
+    image: "/images/blog3.jpg",
+  },
+  {
+    id: 4,
+    date: "Jun, 10, 2021",
+    title: "The truth about the suspected link between social media and self-harm",
+    image: "/images/blog4.jpg",
+  },
+];
+  
+
+const BlogSection = () => {
+  return (
+    <section className="bg-gray-100 py-12">
+      {/* Section Header */}
+      <div className="text-center mb-10">
+        <h2 className="text-2xl md:text-3xl font-bold">OUR BLOG</h2>
+        <p className="text-gray-600">Read the latest news and articles</p>
+      </div>
+
+      {/* Blog List */}
+      <div className="overflow-x-auto md:overflow-visible">
+        <div className="flex md:grid md:grid-cols-4 gap-6 px-4 md:px-12 snap-x snap-mandatory">
+          {blogs.map((blog, index) => (
+            <motion.div
+              key={blog.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              className="min-w-[250px] md:min-w-0 snap-center bg-white rounded-xl shadow-md overflow-hidden cursor-pointer hover:shadow-xl transition-shadow duration-300"
+            >
+              <img
+                src={blog.image}
+                alt={blog.title}
+                className="h-48 w-full object-cover"
+              />
+              <div className="p-4">
+                <p className="text-gray-400 text-sm">{blog.date}</p>
+                <h3 className="text-base font-semibold mt-2 line-clamp-3">
+                  {blog.title}
+                </h3>
+                <button className="text-blue-500 text-sm mt-3">Read more</button>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* Read More Button */}
+      <div className="flex justify-center mt-8">
+        <button className="border border-gray-400 rounded-full px-6 py-2 text-gray-700 hover:bg-gray-200 transition-colors">
+          Read more
+        </button>
+      </div>
+    </section>
+  );
+};
