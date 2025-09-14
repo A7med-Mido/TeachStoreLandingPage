@@ -3,6 +3,7 @@ import { useState } from "react";
 import { AboutWaves } from "../SVG";
 
 
+
 const AboutSection = () => {
   return (
     <div className="bg-white flex flex-col justify-start items-center">
@@ -10,6 +11,7 @@ const AboutSection = () => {
       <div className="mt-[340px] sm:mt-20 w-full md:w-[80vw] bg-[#191B1D] md:rounded-4xl ">
         <About />
       </div>
+        <BlogSection />
     </div>
   );
 };
@@ -256,46 +258,14 @@ function ProductCarousel({ products }: { products: Products }) {
 
 
 
-type Blog = {
-  id: number;
-  date: string;
-  title: string;
-  image: string;
-};
 
-const blogs: Blog[] = [
-  {
-    id: 1,
-    date: "Jun, 12, 2021",
-    title: "Tech companies don’t get science fiction – and that's deeply troubling",
-    image: "/images/blog1.jpg",
-  },
-  {
-    id: 2,
-    date: "Jun, 12, 2021",
-    title: "These are the games to look out for in 2022",
-    image: "/images/blog2.jpg",
-  },
-  {
-    id: 3,
-    date: "Jun, 10, 2021",
-    title: "Why Apple's crackdown on child abuse images is no easy decision",
-    image: "/images/blog3.jpg",
-  },
-  {
-    id: 4,
-    date: "Jun, 10, 2021",
-    title: "The truth about the suspected link between social media and self-harm",
-    image: "/images/blog4.jpg",
-  },
-];
-  
+
 
 const BlogSection = () => {
   return (
-    <section className="bg-gray-100 py-12">
+    <section className="py-12">
       {/* Section Header */}
-      <div className="text-center mb-10">
+      <div className="text-center mb-10 text-black">
         <h2 className="text-2xl md:text-3xl font-bold">OUR BLOG</h2>
         <p className="text-gray-600">Read the latest news and articles</p>
       </div>
@@ -309,19 +279,23 @@ const BlogSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="min-w-[250px] md:min-w-0 snap-center bg-white rounded-xl shadow-md overflow-hidden cursor-pointer hover:shadow-xl transition-shadow duration-300"
+              className="w-[250px] h-[350px] snap-center bg-white/10 rounded-xl overflow-hidden cursor-pointer backdrop-blur-lg shadow-md hover:shadow-xl transition-all"
             >
-              <img
-                src={blog.image}
-                alt={blog.title}
-                className="h-48 w-full object-cover"
+              {/* Image section */}
+              <div
+                className="h-1/2 w-full bg-cover bg-center"
+                style={{ backgroundImage: `url(${blog.image})` }}
               />
-              <div className="p-4">
+
+              {/* Content section */}
+              <div className="p-4 flex flex-col justify-between h-1/2">
                 <p className="text-gray-400 text-sm">{blog.date}</p>
                 <h3 className="text-base font-semibold mt-2 line-clamp-3">
                   {blog.title}
                 </h3>
-                <button className="text-blue-500 text-sm mt-3">Read more</button>
+                <button className="text-blue-500 text-sm mt-3 self-start">
+                  Read more
+                </button>
               </div>
             </motion.div>
           ))}
@@ -337,3 +311,37 @@ const BlogSection = () => {
     </section>
   );
 };
+
+type Blog = {
+  id: number;
+  date: string;
+  title: string;
+  image: string;
+};
+
+const blogs: Blog[] = [
+  {
+    id: 1,
+    date: "Jun, 12, 2021",
+    title: "Tech companies don’t get science fiction – and that's deeply troubling",
+    image: "/apple-vision.png",
+  },
+  {
+    id: 2,
+    date: "Jun, 12, 2021",
+    title: "These are the games to look out for in 2022",
+    image: "/game-arm.png",
+  },
+  {
+    id: 3,
+    date: "Jun, 10, 2021",
+    title: "Why Apple's crackdown on child abuse images is no easy decision",
+    image: "/npc-random.png",
+  },
+  {
+    id: 4,
+    date: "Jun, 10, 2021",
+    title: "The truth about the suspected link between social media and self-harm",
+    image: "/apps.png",
+  },
+];
