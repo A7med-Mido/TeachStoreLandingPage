@@ -1,15 +1,82 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { AboutWaves } from "../SVG";
 
 
 const AboutSection = () => {
 
   return (
-    <div className="">
+    <div className="bg-white flex flex-col justify-start items-center">
       <ProductCarousel products={products} />
+      <div className="mt-[340px] md:mt-20 w-full md:w-[80vw] bg-[#191B1D] md:rounded-4xl ">
+        <About />
+      </div>
     </div>
   );
 };
+
+
+
+const About = () => {
+  return (
+    <section className="relative rounded-3xl flex items-center justify-center py-7 sm:py-20 px-4 sm:px-8 lg:px-16 h-full overflow-hidden">
+        <AboutWaves className="sm:rounded-3xl hidden sm:inline absolute -z-0 inset-0 h-full" />
+      <div className="relative  w-full rounded-3xl p-8 sm:p-12 shadow-lg bg-transparent z-10">
+        {/* Optional decorative background */}
+
+        <div className="relative z-10 text-center space-y-10">
+          {/* Heading */}
+          <div>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">
+              WHY US?
+            </h2>
+            <p className="text-gray-400 text-sm sm:text-base mt-2">
+              Our values and philosophy
+            </p>
+          </div>
+
+          {/* Features */}
+          <div className="space-y-8 text-left">
+            <Feature
+              title="WE CARE"
+              text="We care about our work. We care about doing a good job. We care about customers. We care about the environment and society. We are not ‘just doing our job’ — we care about the product you receive and the experience you will have."
+            />
+            <div className="space-y-8 text-left hidden md:inline">
+              <Feature
+                title="WE PROVIDE THE BEST QUALITY"
+                text="Here you will find products of the best brands in gadgets world. Moreover, if you are not satisfied with the quality of a product, we are always here to help you."
+              />
+              <Feature
+                title="WE PROMOTE THE COMFORT"
+                text="We deliver all products to provide the most comfortable service. You can order a delivery to home, office, garage, garden, island... wherever you need."
+              />
+              <Feature
+                title="WE LEARN"
+                text="We always grow and learn new things. We have a special blog about news from the tech world. Subscribe to receive news and articles which our specialists recommend to read to keep up with the fast-growing world of tech."
+              />
+            </div>
+          </div>
+
+          {/* Subscribe Button */}
+          <button className=" hidden md:inline relative px-6 py-2 rounded-full bg-gradient-to-r from-pink-500 to-blue-500 text-white font-medium hover:scale-105 transition-transform">
+            Subscribe
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const Feature = ({ title, text }: { title: string; text: string }) => (
+  <div className="space-y-2">
+    <h3 className="text-lg sm:text-xl font-semibold text-white">{title}</h3>
+    <p className="text-gray-300 text-sm sm:text-base leading-relaxed">{text}</p>
+  </div>
+);
+
+
+
+
 
 export default AboutSection
 
@@ -50,8 +117,8 @@ type Products = typeof products
 
 
 
-export function ProductCarousel({ products }: { products: Products }) {
-  const [index, setIndex] = useState(0);
+function ProductCarousel({ products }: { products: Products }) {
+  const [index, setIndex] = useState(1);
 
   const renderStars = (rating: number) =>
     Array.from({ length: 5 }, (_, i) => (
@@ -67,14 +134,14 @@ export function ProductCarousel({ products }: { products: Products }) {
         {products.map((p) => (
           <div
             key={p.id}
-            className="relative w-[21vw] h-[290px] md:h-[320px] lg:h-[360px] rounded-3xl overflow-hidden backdrop-blur-sm bg-white/40 "
+            className="relative w-[21vw] h-[290px] md:h-[320px] lg:h-[360px] rounded-3xl overflow-hidden backdrop-blur-xl bg-gray-300/50 "
           >
             <div className="flex flex-col p-6 h-full justify-between">
               <div className="flex justify-center items-center bg-gray-700/30 h-32 rounded-xl">
                 <img src={p.image} alt={p.title} className="h-32 object-contain" />
               </div>
               <div>
-                <h3 className=" text-sm lg:text-lg font-medium">{p.title}</h3>
+                <h3 className=" text-sm lg:text-lg font-medium text-black">{p.title}</h3>
                 <div className="flex items-center gap-2 text-[11px] lg:text-sm">
                   {p.oldPrice && <span className="line-through text-red-600">{p.oldPrice}$</span>}
                   <span className="text-black font-semibold ">{p.price}$</span>
@@ -92,20 +159,20 @@ export function ProductCarousel({ products }: { products: Products }) {
       </div>
 
       {/* MOBILE CAROUSEL */}
-      <div className="sm:hidden w-full max-w-sm overflow-hidden z-10">
+      <div className="sm:hidden w-full max-w-sm z-10 absolute  left-1/2 transform -translate-x-1/2">
         <motion.div
           className="flex"
-          animate={{ x: `-${index * 280}px` }} // move by fixed width
+          animate={{ x: `-${index * 33}vw` }} // move by fixed width
           transition={{ type: "spring", stiffness: 200, damping: 25 }}
         >
           {products.map((p, i) => (
-            <div key={i} className="shrink-0 w-[260px] mx-2">
-              <div className="h-[340px] rounded-2xl overflow-hidden backdrop-blur-md bg-white/30 shadow-md  p-5 flex flex-col justify-between">
+            <div key={i} className="shrink-0 w-[210px] mx-2">
+              <div className="h-[300px] rounded-2xl overflow-hidden backdrop-blur-md bg-white/30 shadow-md  p-5 flex flex-col justify-between">
                 <div className="flex justify-center items-center bg-gray-700/20 h-28 rounded-xl">
                   <img src={p.image} alt={p.title} className="h-28 object-contain" />
                 </div>
                 <div>
-                  <h3 className="text-base font-medium line-clamp-2">{p.title}</h3>
+                  <h3 className="text-base font-medium line-clamp-2 text-black">{p.title}</h3>
                   <div className="flex items-center gap-2">
                     {p.oldPrice && <span className="text-xs line-through text-red-600">{p.oldPrice}$</span>}
                     <span className="font-semibold text-sm">{p.price}$</span>
