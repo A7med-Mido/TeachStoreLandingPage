@@ -271,29 +271,45 @@ const BlogSection = () => {
       </div>
 
       {/* Blog List */}
-      <div className="overflow-x-scroll md:overflow-visible">
-        <div className="flex md:grid md:grid-cols-4 gap-6 px-4 md:px-12 snap-x snap-mandatory">
+      <div className="overflow-x-auto md:overflow-visible no-scrollbar overflow-y-clip">
+        <div
+          className="
+            flex md:grid md:grid-cols-4 gap-6 px-10 md:px-12
+            snap-x snap-mandatory md:snap-none
+          "
+        >
           {blogs.map((blog, index) => (
             <motion.div
               key={blog.id}
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
               transition={{ delay: index * 0.1 }}
-              className="w-[250px] h-[350px] snap-center bg-white/10 rounded-xl overflow-hidden cursor-pointer backdrop-blur-lg shadow-md hover:shadow-xl transition-all"
+              className="
+                min-w-[50%] sm:min-w-[300px] md:min-w-0
+                h-[350px] snap-center
+                rounded-xl overflow-hidden cursor-pointer 
+                 shadow-md hover:shadow-xl 
+                transition-all duration-300
+                 bg-gray-500/50 backdrop-blur-md 
+              "
             >
               {/* Image section */}
-              <div
-                className="h-1/2 w-full bg-cover bg-center"
-                style={{ backgroundImage: `url(${blog.image})` }}
-              />
+              <div className="relative p-4 w-full h-32 overflow-clip">
+                <img
+                  className="absolute inset-0 w-full h-full object-cover object-center"
+                  src={blog.image}
+                  alt={blog.title}
+                />
+              </div>
 
               {/* Content section */}
               <div className="p-4 flex flex-col justify-between h-1/2">
-                <p className="text-gray-400 text-sm">{blog.date}</p>
+                <p className="text-gray-700 text-sm">{blog.date}</p>
                 <h3 className="text-base font-semibold mt-2 line-clamp-3">
                   {blog.title}
                 </h3>
-                <button className="text-blue-500 text-sm mt-3 self-start">
+                <button className="text-gray-500 text-sm mt-3 self-start">
                   Read more
                 </button>
               </div>
@@ -303,7 +319,7 @@ const BlogSection = () => {
       </div>
 
       {/* Read More Button */}
-      <div className="w-full flex justify-center items-center pt-16">
+      <div className="w-full flex justify-center items-center pt-28">
         <div className="bg-gradient-to-r from-orange-400 via-pink-500 to-blue-500 p-1 rounded-full hover:shadow-lg hover:shadow-pink-500/25 transition-all duration-300 w-fit">
           <button className="bg-gray-900 text-white px-10 py-3 rounded-full text-base font-normal hover:bg-gray-800 transition-colors">
             Read more

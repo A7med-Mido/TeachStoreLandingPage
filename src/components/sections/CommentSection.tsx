@@ -3,9 +3,11 @@ import { CommentWaves } from "../SVG";
 
 export default function CommentSection() {
   return (
-    <div className="w-full h-[100vh]">
-      <CommentWaves className="absolute inset-0 -z-10 w-full h-full" />
-      
-    </div>
+    <section className="relative w-full h-[40vh] bg-[#191B1D]">
+      <CommentWaves className="absolute inset-0 w-full h-full" />
+      <h1>
+        ahmed
+      </h1>
+    </section>
   )
 }
