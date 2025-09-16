@@ -9,7 +9,6 @@ export default function CommentSection() {
         <h1 className=" font-bold text-xl sm:text-3xl uppercase mb-16 mt-60 z-30">
           What our customers say
         </h1>
-        {/* <div className="flex justify-center items-center w-[90vw] sm:w-60 "> */}
           <ReviewCard
             name="Natalia Brando"
             avatar="/pp.png"
@@ -20,8 +19,8 @@ export default function CommentSection() {
             onPrev={() => console.log("Previous clicked")}
             onNext={() => console.log("Next clicked")}
           />
-        {/* </div> */}
       </div>
+      <div className="w-[100vw] h-[50vh] bg-white z-0 absolute -bottom-[50vh] left-0"/>
     </section>
   )
 }
@@ -49,23 +48,23 @@ const ReviewCard: React.FC<ReviewCardProps> = ({
   onNext,
 }) => {
   return (
-    <div className="relative max-w-3xl w-full mx-auto rounded-2xl overflow-hidden">
+    <div className="relative max-w-3xl w-full mx-auto rounded-2xl overflow-hidden shadow-xl shadow-black">
 
       <div
         className="absolute inset-0 z-0 pointer-events-none rounded-2xl
-                   bg-gradient-to-b from-white/40 to-white/30 "
+                   bg-gradient-to-b from-white/50 to-white/40 shadow-xl shadow-black"
         style={{
           // exact 12px blur (Tailwind has classes like backdrop-blur-lg,
           // but inline style ensures exact value and WebKit fallback)
-          backdropFilter: "blur(2px)",
-          WebkitBackdropFilter: "blur(2px)",
+          backdropFilter: "blur(9px)",
+          WebkitBackdropFilter: "blur(9px)",
         }}
         aria-hidden
       />
 
       {/* CONTENT: animate only this wrapper (keeps background stable) */}
       <motion.div
-        className="relative z-10 py-6 px-16 flex flex-col items-start gap-4 "
+        className="relative z-10 py-6 px-16 flex flex-col items-start gap-4"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.45, ease: "easeOut" }}
