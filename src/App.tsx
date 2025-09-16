@@ -1,4 +1,5 @@
 import './App.css'
+import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 import AboutSection from './components/sections/AboutSection'
 import CommentSection from './components/sections/CommentSection'
@@ -14,6 +15,7 @@ function App() {
       <ProductSection />
       <AboutSection />
       <CommentSection />
+      <Footer />
     </div>
   )
 }

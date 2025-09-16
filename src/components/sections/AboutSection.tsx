@@ -269,7 +269,8 @@ const BlogCard: React.FC<{ blog: Blog; index: number }> = ({ blog, index }) => {
         relative rounded-xl overflow-hidden
         min-w-[50%] sm:min-w-[300px] md:min-w-0
         h-[350px] snap-center
-        shadow-md hover:shadow-xl transition-all duration-300
+        shadow-lg hover:shadow-xl transition-all duration-300 shadow-black/30
+        z-20
       "
     >
       {/* STATIC overlay / frosted background — DO NOT animate this element */}
@@ -328,7 +329,7 @@ const BlogSection: React.FC = () => {
         <div
           className="
             flex md:grid md:grid-cols-4 gap-6 px-10 md:px-12
-            snap-x snap-mandatory md:snap-none
+            snap-x snap-mandatory md:snap-none relative left-10 sm:left-0
           "
         >
           {blogs.map((blog, index) => (
@@ -382,3 +383,6 @@ const blogs: Blog[] = [
     image: "/apps.png",
   },
 ];
+
+
+
