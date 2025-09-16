@@ -184,7 +184,7 @@ function ProductCarousel({ products }: { products: Products }) {
         {products.map((p) => (
           <div
             key={p.id}
-            className="relative w-[300px] lg:w-[320px] h-[320px] lg:h-[360px] rounded-3xl overflow-hidden backdrop-blur-xl bg-gray-300/50"
+            className="relative w-[300px] h-[320px] sm:w-[200px] sm:h-[320px] lg:w-[320px]  lg:h-[360px] rounded-3xl overflow-hidden backdrop-blur-xl bg-gray-300/50"
           >
             <div className="flex flex-col p-6 h-full justify-between">
               <div className="flex justify-center items-center bg-gray-700/30 h-32 rounded-xl">
@@ -209,10 +209,10 @@ function ProductCarousel({ products }: { products: Products }) {
       </div>
 
       {/* MOBILE CAROUSEL */}
-      <div className="sm:hidden w-full max-w-sm relative overflow-hidden">
+      <div className="sm:hidden w-full max-w-screen relative overflow-scroll">
         <motion.div
-          className="flex"
-          animate={{ x: `-${index * 234}px` }} // moves fixed card width
+          className="flex justify-center items-center"
+          animate={{ x: `-${index * 3}vw` }} // moves fixed card width
           transition={{ type: "spring", stiffness: 200, damping: 25 }}
         >
           {products.map((p, i) => (
