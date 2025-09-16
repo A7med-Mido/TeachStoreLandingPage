@@ -1,6 +1,7 @@
 import './App.css'
 import Navbar from './components/Navbar'
 import AboutSection from './components/sections/AboutSection'
+import CommentSection from './components/sections/CommentSection'
 import HeroSection from './components/sections/HeroSection'
 import ProductSection from './components/sections/ProductSection'
 
@@ -12,6 +13,7 @@ function App() {
       <HeroSection />
       <ProductSection />
       <AboutSection />
+      <CommentSection />
     </div>
   )
 }

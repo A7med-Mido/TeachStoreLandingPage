@@ -365,7 +365,7 @@ export const AboutWaves = ({ className }:{ className: string }) => {
 }
 
 
-export const BlogWaves = ({ className }: { className: string }) => {
+export const CommentWaves = ({ className }: { className: string }) => {
   return (
     <svg
       className={className}

@@ -8,7 +8,7 @@ const AboutSection = () => {
   return (
     <div className="bg-white flex flex-col justify-start items-center overflow-x-clip">
       <ProductCarousel products={products} />
-      <div className="mt-[340px] sm:mt-20 w-full md:w-[80vw] bg-[#191B1D] md:rounded-4xl ">
+      <div className="mt-[40px] sm:mt-20 w-full md:w-[80vw] bg-[#191B1D] md:rounded-4xl ">
         <About />
       </div>
         <BlogSection />
@@ -271,7 +271,7 @@ const BlogSection = () => {
       </div>
 
       {/* Blog List */}
-      <div className="overflow-x-auto md:overflow-visible">
+      <div className="overflow-x-scroll md:overflow-visible">
         <div className="flex md:grid md:grid-cols-4 gap-6 px-4 md:px-12 snap-x snap-mandatory">
           {blogs.map((blog, index) => (
             <motion.div
@@ -303,10 +303,12 @@ const BlogSection = () => {
       </div>
 
       {/* Read More Button */}
-      <div className="flex justify-center mt-8">
-        <button className="border border-gray-400 rounded-full px-6 py-2 text-gray-700 hover:bg-gray-200 transition-colors">
-          Read more
-        </button>
+      <div className="w-full flex justify-center items-center pt-16">
+        <div className="bg-gradient-to-r from-orange-400 via-pink-500 to-blue-500 p-1 rounded-full hover:shadow-lg hover:shadow-pink-500/25 transition-all duration-300 w-fit">
+          <button className="bg-gray-900 text-white px-10 py-3 rounded-full text-base font-normal hover:bg-gray-800 transition-colors">
+            Read more
+          </button>
+        </div>
       </div>
     </section>
   );
