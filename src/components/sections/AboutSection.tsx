@@ -6,7 +6,7 @@ import { AboutWaves } from "../SVG";
 
 const AboutSection = () => {
   return (
-    <div className="bg-white flex flex-col justify-start items-center">
+    <div className="bg-white flex flex-col justify-start items-center overflow-x-clip">
       <ProductCarousel products={products} />
       <div className="mt-[340px] sm:mt-20 w-full md:w-[80vw] bg-[#191B1D] md:rounded-4xl ">
         <About />
@@ -178,23 +178,23 @@ function ProductCarousel({ products }: { products: Products }) {
     ));
 
   return (
-    <div className="w-[120vw] md:w-[100vw] flex flex-col items-center ml-[1vw] md:ml-[13.5vw] -mt-[70px] lg:-mt-[130px]">
+    <div className="w-full overflow-x-clip flex flex-col items-center -mt-[70px] lg:-mt-[130px]">
       {/* DESKTOP / TABLET */}
-      <div className="hidden sm:grid grid-cols-3 gap-6 mx-auto z-10">
+      <div className="hidden sm:grid grid-cols-3 gap-6 max-w-[90vw] mx-auto">
         {products.map((p) => (
           <div
             key={p.id}
-            className="relative w-[21vw] lg:w-[20vw] h-[290px] md:h-[320px] lg:h-[360px] rounded-3xl overflow-hidden backdrop-blur-xl bg-gray-300/50 "
+            className="relative w-[300px] lg:w-[320px] h-[320px] lg:h-[360px] rounded-3xl overflow-hidden backdrop-blur-xl bg-gray-300/50"
           >
             <div className="flex flex-col p-6 h-full justify-between">
               <div className="flex justify-center items-center bg-gray-700/30 h-32 rounded-xl">
                 <img src={p.image} alt={p.title} className="h-32 object-contain" />
               </div>
               <div>
-                <h3 className=" text-sm lg:text-lg font-medium text-black">{p.title}</h3>
+                <h3 className="text-sm lg:text-lg font-medium text-black">{p.title}</h3>
                 <div className="flex items-center gap-2 text-[11px] lg:text-sm">
                   {p.oldPrice && <span className="line-through text-red-600">{p.oldPrice}$</span>}
-                  <span className="text-black font-semibold ">{p.price}$</span>
+                  <span className="text-black font-semibold">{p.price}$</span>
                 </div>
               </div>
               <div className="flex gap-1">{renderStars(p.rating)}</div>
@@ -209,15 +209,15 @@ function ProductCarousel({ products }: { products: Products }) {
       </div>
 
       {/* MOBILE CAROUSEL */}
-      <div className="sm:hidden w-full max-w-sm z-10 absolute  left-1/2 transform -translate-x-1/2">
+      <div className="sm:hidden w-full max-w-sm relative overflow-hidden">
         <motion.div
           className="flex"
-          animate={{ x: `-${index * 33}vw` }} // move by fixed width
+          animate={{ x: `-${index * 234}px` }} // moves fixed card width
           transition={{ type: "spring", stiffness: 200, damping: 25 }}
         >
           {products.map((p, i) => (
-            <div key={i} className="shrink-0 w-[210px] mx-2">
-              <div className="h-[300px] rounded-2xl overflow-hidden backdrop-blur-md bg-white/30 shadow-md  p-5 flex flex-col justify-between">
+            <div key={i} className="shrink-0 w-[210px] mx-3">
+              <div className="h-[300px] rounded-2xl overflow-hidden backdrop-blur-md bg-white/30 shadow-md p-5 flex flex-col justify-between">
                 <div className="flex justify-center items-center bg-gray-700/20 h-28 rounded-xl">
                   <img src={p.image} alt={p.title} className="h-28 object-contain" />
                 </div>

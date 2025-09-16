@@ -22,7 +22,7 @@ export default function ProductSection() {
       </h1>
       
 
-        <img src="/npc.png" className="sm:w-[50%] w-[80%] h-fit z-10 relative -left-24 sm:-left-16 pt-36 sm:pt-24" alt="Product" />
+        <img src="/npc.png" className="sm:w-[50%] w-[80%] h-fit z-0 relative -left-24 sm:-left-16 pt-36 sm:pt-24" alt="Product" />
       <div className="z-10 absolute right-[10%] top-32 sm:w-[50vw] w-[210px] flex flex-col text-center md:items-start justify-center items-center ">
         <h1 className="text-4xl sm:text-[5vw] gradient-text font-bold uppercase  md:text-start">
           Move with the beat of yor life

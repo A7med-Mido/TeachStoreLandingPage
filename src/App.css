@@ -24,10 +24,9 @@
   font-style: normal;
 }
 
-body {
+html {
   font-family: "MyFont";
-
-  overflow-x: clip;
+  overflow-x: hidden;
 }
 
 .blur {
@@ -45,7 +44,6 @@ body {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: animate-gradient 2.5s linear infinite;
-  background-image: url();
 }
 
 @keyframes animate-gradient {
