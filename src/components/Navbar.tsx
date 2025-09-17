@@ -46,7 +46,7 @@ const Navbar = () => {
           >
             {/* Close Button */}
             <button
-              className="absolute top-6 right-6 text-white text-3xl focus:outline-none"
+              className="absolute top-6 right-6 text-white text-3xl focus:outline-none outline-none"
               onClick={() => setIsOpen(false)}
               aria-label="Close menu"
             >
@@ -64,7 +64,7 @@ const Navbar = () => {
                 >
                   <a
                     href="#"
-                    className={`hover:opacity-80 ${
+                    className={`hover:opacity-80 outline-none ${
                       item === "Home" ? "gradient-text" : ""
                     }`}
                     onClick={() => setIsOpen(false)}
